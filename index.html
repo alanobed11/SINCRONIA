@@ -547,14 +547,14 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Alinea el contenido al inicio para permitir el scroll */
+            justify-content: center; /* Centra el contenido verticalmente */
             align-items: center;
             background-color: var(--bg-light); /* Fondo blanco sólido para la bienvenida */
             z-index: 990; /* Detrás del header y sidebar, pero delante del contenido principal */
             opacity: 1;
             transition: opacity 0.5s ease-out;
             overflow-y: auto; /* Permite el desplazamiento dentro de la sección */
-            scroll-snap-type: y mandatory; /* Para un desplazamiento más suave entre secciones */
+            scroll-snap-type: none; /* Deshabilita el scroll-snap */
         }
 
         #welcome-section.hidden {
@@ -569,7 +569,7 @@
             align-items: center;
             min-height: 100vh; /* Cada "página" de la bienvenida ocupa al menos la altura de la vista */
             width: 100%;
-            scroll-snap-align: start; /* Alinea al inicio de la sección al desplazarse */
+            scroll-snap-align: none; /* Deshabilita el scroll-snap para este wrapper */
             padding: 20px; /* Añadir padding para evitar que el contenido toque los bordes */
             box-sizing: border-box; /* Incluir padding en el ancho/alto */
         }
@@ -618,52 +618,11 @@
             animation-delay: 0.5s; /* Pequeño retraso para que se vea diferente al h1 */
         }
 
-        /* Estilos para las nuevas secciones de Visión y Misión */
-        .scroll-content-card {
-            /* Colores más claros y llamativos */
-            background: linear-gradient(135deg, #a2d9ff, #c2e0ff); /* Tonos de azul claro */
-            color: var(--text-dark); /* Texto oscuro para contraste */
-            border-radius: 15px;
-            padding: 10px 15px; /* Reducido el padding vertical para ajustar más al texto */
-            margin: 15px auto; /* Reducido el margen entre tarjetas */
-            max-width: 500px; /* Más reducido de 600px para un ajuste más ceñido */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra más suave */
-            text-align: center;
-            opacity: 0; /* Inicialmente oculto */
-            transform: translateY(50px); /* Inicialmente desplazado hacia abajo */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transición suave */
-            /* Se ha eliminado 'min-height' para que el tamaño se ajuste al contenido */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            scroll-snap-align: start; /* Alinea al inicio de la sección al desplazarse */
-        }
-
-        .scroll-content-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-content-card h2 {
-            font-size: 1.6em; /* Reducido de 1.8em */
-            color: var(--primary-color); /* Color primario para los títulos */
-            margin-bottom: 8px; /* Reducido de 10px */
-            border-bottom: 2px solid var(--secondary-color); /* Mantiene el borde */
-            padding-bottom: 4px; /* Reducido de 5px */
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: none; /* Eliminar sombra de texto para claridad */
-        }
-
-        .scroll-content-card p {
-            font-size: 0.95em; /* Reducido de 1em */
-            line-height: 1.3; /* Ajustado ligeramente */
-            color: var(--text-dark); /* Texto oscuro para contraste */
-            margin-bottom: 0;
-        }
+        /* Se eliminan los estilos de .scroll-content-card ya que no se usarán */
+        /* .scroll-content-card { ... } */
+        /* .scroll-content-card.visible { ... } */
+        /* .scroll-content-card h2 { ... } */
+        /* .scroll-content-card p { ... } */
 
 
         /* Animación de degradado para el fondo */
@@ -764,17 +723,7 @@
             #welcome-section .welcome-title p {
                 font-size: 1.2em;
             }
-            .scroll-content-card {
-                padding: 8px 12px; /* Más reducido para móviles */
-                margin: 10px auto; /* Más reducido para móviles */
-                max-width: 90%; /* Ajuste para que no sea demasiado ancho en pantallas pequeñas */
-            }
-            .scroll-content-card h2 {
-                font-size: 1.5em;
-            }
-            .scroll-content-card p {
-                font-size: 0.8em;
-            }
+            /* Se eliminan los estilos de .scroll-content-card para móviles */
         }
 
         @media (max-width: 480px) {
@@ -804,16 +753,7 @@
             #welcome-section .welcome-title p {
                 font-size: 1em;
             }
-            .scroll-content-card {
-                margin: 8px auto; /* Más reducido para pantallas muy pequeñas */
-                padding: 6px 10px; /* Aún más reducido para pantallas muy pequeñas */
-            }
-            .scroll-content-card h2 {
-                font-size: 1.3em;
-            }
-            .scroll-content-card p {
-                font-size: 0.75em;
-            }
+            /* Se eliminan los estilos de .scroll-content-card para móviles */
         }
 
         /* Mensaje de notificación */
@@ -972,17 +912,7 @@
                 </div>
             </div>
 
-            <!-- Sección de Visión (inicialmente oculta) -->
-            <div class="welcome-content-wrapper scroll-content-card" id="vision-section">
-                <h2>VISIÓN</h2>
-                <p>Ser una Iglesia Bíblica, Pentecostal y que viva los principios del Reino así como Jesús, para cumplir con la Gran Comisión.</p>
-            </div>
-
-            <!-- Sección de Misión (inicialmente oculta) -->
-            <div class="welcome-content-wrapper scroll-content-card" id="mision-section">
-                <h2>MISIÓN</h2>
-                <p>Ganar, consolidar y discipular al mundo por medio de la predicación y la enseñanza del evangelio de Jesucristo, bajo el poder del Espíritu Santo.</p>
-            </div>
+            <!-- Se eliminan las secciones de Visión y Misión -->
         </section>
 
         <!-- Contenido Principal de las Secciones (Ocultas al inicio) -->
@@ -1238,9 +1168,7 @@
                     welcomeSection.style.opacity = '1';
                 }, 10);
 
-                // Asegurarse de que las secciones de visión y misión estén ocultas al volver al inicio
-                document.getElementById('vision-section').classList.remove('visible');
-                document.getElementById('mision-section').classList.remove('visible');
+                // No hay secciones de visión y misión que ocultar
                 // Desplazar al inicio de la sección de bienvenida
                 welcomeSection.scrollTop = 0;
             }
@@ -1268,34 +1196,12 @@
             }
         });
 
-        // Lógica para mostrar las secciones de Visión y Misión al hacer scroll
-        const welcomeInitialContent = document.getElementById('welcome-initial-content');
-        const visionSection = document.getElementById('vision-section');
-        const misionSection = document.getElementById('mision-section');
+        // Se elimina la lógica para mostrar las secciones de Visión y Misión al hacer scroll
+        // const welcomeInitialContent = document.getElementById('welcome-initial-content');
+        // const visionSection = document.getElementById('vision-section');
+        // const misionSection = document.getElementById('mision-section');
 
-        welcomeSection.addEventListener('scroll', () => {
-            // Calcula la posición de scroll relativa al inicio de la sección de bienvenida
-            const scrollPosition = welcomeSection.scrollTop;
-            const viewportHeight = welcomeSection.clientHeight;
-
-            // Define los umbrales de scroll para cada sección
-            // La visión aparece cuando el usuario se desplaza aproximadamente 50% de la altura de la vista inicial
-            const visionThreshold = viewportHeight * 0.5;
-            // La misión aparece cuando el usuario se desplaza aproximadamente 150% de la altura de la vista inicial (después de la visión)
-            const misionThreshold = viewportHeight * 1.5;
-
-            if (scrollPosition > visionThreshold) {
-                visionSection.classList.add('visible');
-            } else {
-                visionSection.classList.remove('visible');
-            }
-
-            if (scrollPosition > misionThreshold) {
-                misionSection.classList.add('visible');
-            } else {
-                misionSection.classList.remove('visible');
-            }
-        });
+        // welcomeSection.addEventListener('scroll', () => { ... });
 
 
         // 6. Lógica de la Sección de Herramientas (Juegos Bíblicos)
@@ -1678,7 +1584,7 @@
 
             if (selectedOption === correctAnswer) {
                 correctAnswersCount += 1; // Incrementar contador de respuestas correctas
-                quizFeedback.textContent = "¡Correcto! 🎉";
+                quizFeedback.textContent = "¡Correcto! �";
                 button.classList.add('correct');
             } else {
                 quizFeedback.textContent = `Incorrecto. La respuesta correcta era: ${correctAnswer}`;
